@@ -5,6 +5,9 @@
     <title></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -20,8 +23,11 @@
         <div class="row">
             <div class="col-">
                 <h4>Search for a City</h4>
+
                 <input type="text" placeholder="City"><button type="button"
-                    class="form-control query_btn btn btn-default btn-sm">Search</button><br>
+                    class="query_btn form-control btn btn-default btn-sm">Search</button><br>
+                <input type="text" placeholder="Zip Code"><button type="button"
+                    class="query_btn form-control btn btn-default btn-sm">Search</button><br>
 
                 <ul class="list-group">
                     <li class="list-group-item">Cras justo odio</li>
@@ -35,6 +41,15 @@
                 </ul>
             </div>
             <div class="col-lg">
+                <div class="row weatherTopDiv">
+                    <h4>City: <span id="city"></span></h4>
+                    <img id="weather_image" src="">
+                    <div>Date: <span id="date"></span></div>
+                    <div>Temperature: <span id="temperature"></span></div>
+                    <div>Humidity: <span id="humidity"></span></div> 
+                    <div>Wind: <span id="wind"></span></div>
+                    <div>UV Index: <span id="uvIndex"></span></div>
+                </div>
                 <h4 class="cityName"></h4>
                 <div class="row">
                     <div class="weatherCardTop">
@@ -43,87 +58,73 @@
                 <h4>5-day forecast</h4>
                 <div class="row">
                     <div class="col">
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card text-white bg-primary mb-3" id="weatherCardA" style="max-width: 18rem;">
                             <div class="card-header">City: <span id="city"></span></div>
                             <div class="card-body">
                                 <p class="card-text">
                                     <img id="weather_image" src="">
-                                    <p>Main Weather: <span id="main_weather"></span></p>
-                                    <p>Description: <span id="description_weather"></span></p>
                                     <p>Temperature: <span id="temperature"></span></p>
-                                    <p>Pressure: <span id="pressure"></span></p>
                                     <p>Humidity: <span id="humidity"></span></p>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card text-white bg-primary mb-3" id="weatherCardB" style="max-width: 18rem;">
                             <div class="card-header">City: <span id="city"></span></div>
                             <div class="card-body">
                                 <p class="card-text">
                                     <img id="weather_image" src="">
-                                    <p>Main Weather: <span id="main_weather"></span></p>
-                                    <p>Description: <span id="description_weather"></span></p>
                                     <p>Temperature: <span id="temperature"></span></p>
-                                    <p>Pressure: <span id="pressure"></span></p>
                                     <p>Humidity: <span id="humidity"></span></p>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card text-white bg-primary mb-3" id="weatherCardC" style="max-width: 18rem;">
                             <div class="card-header">City: <span id="city"></span></div>
                             <div class="card-body">
                                 <p class="card-text">
                                     <img id="weather_image" src="">
-                                    <p>Main Weather: <span id="main_weather"></span></p>
-                                    <p>Description: <span id="description_weather"></span></p>
                                     <p>Temperature: <span id="temperature"></span></p>
-                                    <p>Pressure: <span id="pressure"></span></p>
                                     <p>Humidity: <span id="humidity"></span></p>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card text-white bg-primary mb-3" id="weatherCardD" style="max-width: 18rem;">
                             <div class="card-header">City: <span id="city"></span></div>
                             <div class="card-body">
                                 <p class="card-text">
                                     <img id="weather_image" src="">
-                                    <p>Main Weather: <span id="main_weather"></span></p>
-                                    <p>Description: <span id="description_weather"></span></p>
                                     <p>Temperature: <span id="temperature"></span></p>
-                                    <p>Pressure: <span id="pressure"></span></p>
                                     <p>Humidity: <span id="humidity"></span></p>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card text-white bg-primary mb-3" id="weatherCardE" style="max-width: 18rem;">
                             <div class="card-header">City: <span id="city"></span></div>
                             <div class="card-body">
                                 <p class="card-text">
                                     <img id="weather_image" src="">
-                                    <p>Main Weather: <span id="main_weather"></span></p>
-                                    <p>Description: <span id="description_weather"></span></p>
                                     <p>Temperature: <span id="temperature"></span></p>
-                                    <p>Pressure: <span id="pressure"></span></p>
                                     <p>Humidity: <span id="humidity"></span></p>
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
     </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
 
 </html>
